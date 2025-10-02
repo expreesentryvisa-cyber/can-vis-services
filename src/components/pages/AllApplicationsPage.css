@@ -1,0 +1,39 @@
+/* src/pages/AllApplicationsPage.css */
+
+.page-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.page-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+.page-tabs .tab {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #495057;
+}
+
+.page-tabs .tab.active {
+  background-color: #e9ecef;
+  color: #007bff;
+}
+
+.page-content-area {
+  padding: 24px;
+}

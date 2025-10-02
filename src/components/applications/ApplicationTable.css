@@ -1,0 +1,29 @@
+/* src/components/applications/ApplicationTable.css */
+
+.table-wrapper {
+  overflow-x: auto; /* Adds horizontal scroll on smaller screens if needed */
+}
+
+.application-table {
+  width: 100%;
+  border-collapse: collapse; /* Removes space between table cells */
+  text-align: left;
+  font-size: 14px;
+}
+
+.application-table th {
+  padding: 16px;
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #343a40;
+  border-bottom: 2px solid #dee2e6;
+}
+
+/* Zebra-striping for better readability */
+.application-table tbody tr:nth-of-type(even) {
+  background-color: #f8f9fa;
+}
+
+.application-table tbody tr:hover {
+  background-color: #e9ecef;
+}

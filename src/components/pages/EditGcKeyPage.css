@@ -1,0 +1,116 @@
+/* src/components/pages/EditGcKeyPage.css */
+
+/* --- Font Change --- */
+/* The global font is set in index.css. To specifically change it here: */
+.page-container,
+.gc-key-form {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Example new font */
+  /* Or use a font variable defined in index.css if you prefer a global font */
+}
+
+.page-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.gc-key-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Responsive grid */
+  gap: 20px;
+  /* NEW: Align items to start for consistent top alignment */
+  align-items: start;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  /* Ensure consistent height for single-line inputs, allow textareas to grow */
+  /* min-height: 80px; /* Optional: uncomment if you want all fields to take similar vertical space even if empty */
+}
+
+.form-field label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #495057;
+  margin-bottom: 8px;
+}
+
+.form-input,
+.form-textarea,
+.dropdown-wrapper .dropdown-select {
+  /* Specificity for dropdown select */
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #495057;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.dropdown-wrapper .dropdown-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.dropdown-wrapper {
+  width: 100%;
+  position: relative; /* Keep for calendar icon */
+}
+/* Ensure the select itself is full width */
+.dropdown-wrapper .dropdown-select {
+  min-width: unset;
+}
+
+.date-picker-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.date-picker-wrapper .form-input[type="date"] {
+  padding-right: 40px;
+}
+
+.date-picker-wrapper .calendar-icon {
+  position: absolute;
+  right: 12px;
+  color: #6c757d;
+  pointer-events: none;
+}
+
+.form-actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+}

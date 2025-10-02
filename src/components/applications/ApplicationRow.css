@@ -1,0 +1,20 @@
+/* src/components/applications/ApplicationRow.css */
+
+.app-row td {
+  padding: 16px;
+  vertical-align: middle;
+  color: #495057;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.status-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between dropdown and button */
+}
+
+.actions-cell {
+  display: flex;
+  flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
+  gap: 8px; /* Space between action buttons */
+}

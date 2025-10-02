@@ -1,0 +1,51 @@
+/* src/components/layout/Sidebar.css */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: #f8f9fa;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+}
+
+.sidebar-nav {
+  flex-grow: 1; /* Pushes the footer to the bottom */
+}
+
+.sidebar-category {
+  padding: 0 24px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6c757d;
+  text-transform: uppercase;
+}
+
+.sidebar-link {
+  display: block;
+  padding: 12px 24px;
+  text-decoration: none;
+  color: #495057;
+  font-size: 15px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-link:hover {
+  background-color: #e9ecef;
+}
+
+/* This 'active' class is automatically added by NavLink */
+.sidebar-link.active {
+  background-color: #007bff;
+  color: white;
+  font-weight: 500;
+}
+
+.sidebar-footer {
+  padding: 0 24px;
+}
+
+.sidebar-link.logout {
+  margin-top: auto; /* Aligns to the bottom */
+}

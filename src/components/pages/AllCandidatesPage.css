@@ -1,0 +1,128 @@
+/* Main container for the list */
+.candidates-container {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  padding: 24px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+/* Main heading "All Candidates List" */
+.candidates-container h1 {
+  font-size: 24px;
+  color: #111827;
+  margin-bottom: 20px;
+}
+
+/* Header section with title and "Add" button */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.list-header h2 {
+  font-size: 18px;
+  color: #374151;
+  margin: 0;
+}
+
+.add-candidate-btn {
+  background-color: #3b82f6; /* Blue button */
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-candidate-btn:hover {
+  background-color: #2563eb;
+}
+
+/* Table styling */
+.candidates-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.candidates-table th,
+.candidates-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.candidates-table th {
+  background-color: #f9fafb;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.candidates-table td {
+  color: #374151;
+}
+
+.candidates-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Styling for the stacked action buttons */
+.actions-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+}
+
+.action-btn {
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+  transition: opacity 0.2s;
+}
+
+.action-btn:hover {
+  opacity: 0.85;
+}
+
+.edit-security {
+  background-color: #f59e0b; /* Orange */
+}
+
+.edit-gcc {
+  background-color: #6b7280; /* Grey */
+}
+
+.see-docs {
+  background-color: #3b82f6; /* Blue */
+}
+
+/* EDITED: Added style for the delete button */
+.action-btn.delete-btn {
+  background-color: #fee2e2; /* Light Red */
+  color: #991b1b; /* Dark Red */
+}
+.action-btn.delete-btn:hover {
+  background-color: #fecaca;
+}

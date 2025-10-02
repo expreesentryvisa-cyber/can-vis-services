@@ -1,0 +1,88 @@
+.page-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+}
+
+.breadcrumb {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.success-banner {
+  background-color: #28a745;
+  color: white;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.upload-form-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  /* CORRECTED: Changed 'end' to 'start' for top alignment */
+  align-items: start;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.upload-form-container .form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-form-container .form-field label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #495057;
+}
+
+.upload-form-container .date-input {
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit; /* Ensure consistent font */
+}
+
+.field-note {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-top: 5px;
+}
+
+.form-action-field {
+  display: flex;
+  justify-content: flex-end;
+  align-self: end; /* Make the button stay at the bottom of its column */
+}
+
+/* --- Improved Styling for File Input --- */
+.file-input {
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+.file-input::file-selector-button {
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-right: 10px;
+}
+
+.file-input::file-selector-button:hover {
+  background-color: #e9ecef;
+}
