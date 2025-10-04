@@ -1,0 +1,33 @@
+.secure-access-section {
+  flex: 1.5;
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.secure-access-section h2 {
+  font-size: 22px;
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.secure-access-section p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.secure-access-section .small-text {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 0;
+}
+
+.secure-access-section .small-text a {
+  color: #0056b3;
+}
+
+.btn-full-width {
+  width: 100%;
+  margin-bottom: 20px;
+}

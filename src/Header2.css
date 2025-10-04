@@ -1,0 +1,93 @@
+/* General Header Wrapper */
+.gc-header {
+  font-family: Arial, sans-serif;
+  color: #000;
+}
+
+/* --- Topbar --- */
+.gc-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+  background: #f9f9f9;
+}
+
+.gc-logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gc-logo {
+  width: 500px;
+  align-content: center;
+  height: auto;
+  margin-top: 27px;
+  margin-left: 260px;
+}
+
+.gc-title {
+  line-height: 1.2;
+}
+
+.gc-title p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.gc-lang {
+  font-size: 14px;
+  color: #003366;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* --- Navigation Bar --- */
+.gc-nav {
+  background-color: #23406d;
+}
+
+.gc-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  justify-content: center;   /* ✅ Center items horizontally */
+}
+
+.gc-nav li {
+  border-right: 1px solid #3c5a89;
+}
+
+.gc-nav li:last-child {
+  border-right: none;
+}
+
+.gc-nav a {
+  display: block;
+  padding: 12px 24px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.gc-nav a:hover {
+  background-color: #1a2f52;
+}
+/* --- Breadcrumb --- */
+.gc-breadcrumb {
+  font-size: 16px;
+  color: #333;
+  padding: 10px 25px;
+  margin-left: 300px;
+}
+
+.gc-breadcrumb a {
+  color: #003366;
+  text-decoration: none;
+}
+
+.gc-breadcrumb span {
+  font-weight: bold;
+}

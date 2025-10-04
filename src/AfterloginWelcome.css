@@ -1,0 +1,185 @@
+.wabs-wrapper {
+          font-family: Arial, sans-serif;
+          background-color: #fff9f9;
+          min-height: 100vh;
+        }
+.dividing{
+  display: flex;
+  flex-direction: row;
+}
+        .wabs-header {
+          background-color: #dbdbdb;
+          padding: 12px 40px;
+        }
+
+        .wabs-breadcrumb {
+          font-size: 14px;
+          color: #0a0a0a;
+        }
+
+        .wabs-breadcrumb-link {
+          color: #0a0a0a;
+          text-decoration: underline;
+        }
+
+        .wabs-breadcrumb-link:hover {
+          text-decoration: none;
+        }
+
+        .wabs-breadcrumb-arrow {
+          margin: 0 8px;
+          color: #0a0a0a;
+        }
+
+        .wabs-breadcrumb-current {
+          color: #0a0a0a;
+        }
+
+        .wabs-content {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 40px;
+          background-color: #fff9f9;
+        }
+
+        .wabs-content-wrapper {
+          display: flex;
+          gap: 40px;
+        }
+
+        .wabs-left-content {
+          flex: 1;
+        }
+
+        .wabs-title {
+          font-size: 32px;
+          font-weight: bold;
+          color: #333;
+          margin: 0 0 15px 0;
+        }
+
+        .wabs-divider {
+          height: 2px;
+          background-color: #a7686c;
+          margin-bottom: 25px;
+        }
+
+        .wabs-last-signin {
+          font-size: 15px;
+          color: #666;
+          margin-bottom: 20px;
+          line-height: 1.6;
+        }
+
+        .wabs-info {
+          font-size: 15px;
+          color: #333;
+          margin-bottom: 20px;
+          line-height: 1.6;
+        }
+
+        .wabs-link {
+          color: #295376;
+          text-decoration: underline;
+        }
+
+        .wabs-link:hover {
+          color: #1a3a54;
+        }
+
+        .wabs-security-note {
+          font-size: 15px;
+          color: #333;
+          margin-bottom: 20px;
+          line-height: 1.6;
+        }
+
+        .wabs-instruction {
+          font-size: 15px;
+          color: #333;
+          margin-bottom: 25px;
+          line-height: 1.6;
+        }
+
+        .wabs-continue-btn {
+          background-color: #2b5a8a;
+          color: #fff;
+          border: none;
+          padding: 10px 28px;
+          font-size: 16px;
+          border-radius: 4px; 
+          cursor: pointer;
+          font-weight: 500;
+          margin-left: 400px;
+          transition: background-color 0.2s;
+        }
+
+        .wabs-continue-btn:hover {
+          background-color: #1e4466;
+        }
+
+        .wabs-footer-date {
+          font-size: 14px;
+          color: #666;
+          margin-top: 60px;
+          padding-top: 20px;
+          border-top: 1px solid #e0e0e0;
+        }
+
+        .wabs-sidebar {
+          width: 280px;
+          background-color: #fff;
+          padding: 25px;
+          border: 1px solid #d4d4d4;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+          align-self: flex-start;
+          margin-left: 100px;
+        }
+
+        .wabs-sidebar-title {
+          font-size: 20px;
+          font-weight: bold;
+          color: #333;
+          margin: 0 0 20px 0;
+        }
+
+        .wabs-options-menu {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .wabs-option-link {
+          color: #555;
+          font-size: 15px;
+          text-decoration: none;
+          padding: 10px 0;
+          border-bottom: 1px solid #d4d4d4;
+          transition: color 0.2s;
+        }
+
+        .wabs-option-link:hover {
+          color: #295376;
+          text-decoration: underline;
+        }
+
+        .wabs-option-link:last-child {
+          border-bottom: none;
+        }
+
+        @media (max-width: 968px) {
+          .wabs-content {
+            padding: 20px;
+          }
+
+          .wabs-content-wrapper {
+            flex-direction: column;
+          }
+
+          .wabs-sidebar {
+            width: 100%;
+          }
+
+          .wabs-header {
+            padding: 12px 20px;
+          }
+        }

@@ -1,12 +1,31 @@
-import React from "react";
-// CORRECTED PATH: Removed the extra "components/"
+import React, { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebaseConfig";
+import { useNavigate } from "react-router-dom";   // <-- Import
 import Button from "../common/Button";
 import "./LoginPage.css";
 
 const LoginPage = () => {
-  const handleLogin = (e) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();  // <-- Hook for navigation
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    alert("Login functionality not implemented yet.");
+    setError(null);
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      console.log("User logged in:", userCredential.user);
+      alert("Login successful ✅");
+
+      // ✅ Redirect to /applications
+      navigate("/applications");
+    } catch (err) {
+      console.error("Login failed:", err.message);
+      setError("Invalid email or password.");
+    }
   };
 
   return (
@@ -20,6 +39,8 @@ const LoginPage = () => {
               type="email"
               id="email"
               placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
@@ -29,9 +50,14 @@ const LoginPage = () => {
               type="password"
               id="password"
               placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
+
+          {error && <p className="error-msg">{error}</p>}
+
           <Button type="submit" variant="primary" className="login-btn">
             Login
           </Button>

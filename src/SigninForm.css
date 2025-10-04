@@ -1,0 +1,47 @@
+.sign-in-section {
+  flex: 2;
+}
+
+.sign-in-section h2 {
+  font-size: 22px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  /* font-weight: bold; */
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #999;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.form-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.form-links {
+  margin-top: 20px;
+}
+
+.form-links a {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.form-links span {
+  margin: 0 5px;
+  color: #555;
+}

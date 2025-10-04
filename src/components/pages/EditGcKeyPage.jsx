@@ -1,19 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { db } from "../../firebaseConfig";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import Button from "../common/Button";
-// Dropdown is still imported, but we'll use DropdownWithLabel for consistency
-import Dropdown from "../common/Dropdown";
 import "./EditGcKeyPage.css";
 
 // --- Placeholder Components for Inputs and DatePicker ---
-const TextInput = ({
-  label,
-  value,
-  onChange,
-  placeholder,
-  name,
-  readOnly = false,
-}) => (
+const TextInput = ({ label, value, onChange, placeholder, name }) => (
   <div className="form-field">
     <label>{label}</label>
     <input
@@ -22,7 +15,6 @@ const TextInput = ({
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      readOnly={readOnly}
       className="form-input"
     />
   </div>
@@ -39,7 +31,7 @@ const DatePickerInput = ({ label, value, onChange, name }) => (
         onChange={onChange}
         className="form-input"
       />
-      <span className="calendar-icon">📅</span> {/* Calendar icon */}
+      <span className="calendar-icon">📅</span>
     </div>
   </div>
 );
@@ -58,18 +50,10 @@ const TextAreaInput = ({ label, value, onChange, placeholder, name }) => (
   </div>
 );
 
-// NEW: Dropdown component with integrated label for consistent styling
-const DropdownWithLabel = ({
-  label,
-  options,
-  value,
-  onChange,
-  name,
-  className = "",
-}) => (
+const DropdownWithLabel = ({ label, options, value, onChange, name }) => (
   <div className="form-field">
     <label>{label}</label>
-    <div className={`dropdown-wrapper ${className}`}>
+    <div className="dropdown-wrapper">
       <select
         className="form-input dropdown-select"
         name={name}
@@ -85,7 +69,6 @@ const DropdownWithLabel = ({
     </div>
   </div>
 );
-// --- End Placeholder Components ---
 
 const applicationTypes = [
   { value: "online", label: "Online Application" },
@@ -94,85 +77,54 @@ const applicationTypes = [
 ];
 
 const EditGcKeyPage = () => {
-  const { id } = useParams();
+  const { id } = useParams(); // candidate doc ID
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    applicationType: "online",
-    applicantName: "",
-    applicationNumber: "",
-    submissionDate: "",
-    finalDecisionDate: "",
-    finalDecisionMessage: "",
-    biometricsNumber: "",
-    dateOfBiometricsEnrolment: "",
-    clientIdentifierUCI: "",
-    reviewOfMedicalResults: "",
-    reviewOfEligibility: "",
-    medicalEnrolmentDate: "",
-    reviewOfAdditionalDocuments: "",
-    interviewMessage: "",
-    backgroundCheckMessage: "",
-    biometricsMessage: "",
-    biometricsExpiryDate: "",
-    backgroundCheckDate: "",
-    reviewOrFinalMessage: "",
+    applicationType: "Online",
+    status:"pending",
+  applicantName: "ABC",
+  applicationNumber: "W23456783",
+  submissionDate: "2025-09-01",
+  finalDecisionDate: "2025-09-28",
+  finalDecisionMessage:
+    "November 28, 2025 Your application was approved. Check your messages...",
+  biometricsNumber: "00055442666277788288282",
+  dateOfBiometricsEnrolment: "2025-09-12",
+  clientIdentifierUCI: "11396853.444",
+  reviewOfMedicalResults:
+    "You need a medical exam. We will send you a message if this changes.",
+  reviewOfEligibility:
+    "November 26, 2025 Your eligibility has been reviewed. Please see the final decision.",
+  medicalEnrolmentDate: "2025-09-17",
+  reviewOfAdditionalDocuments: "We do not need additional documents.",
+  interviewMessage:
+    "You do not need an interview. We will send you a message if this changes.",
+  backgroundCheckMessage:
+    "We are processing your background check. We will send you a message.",
+  biometricsMessage:
+    "We do not need your fingerprints. We will send you a message if this changes.",
+  biometricsExpiryDate: "2035-11-09",
+  backgroundCheckDate: "2025-09-18",
+  reviewOrFinalMessage: "This is the final message regarding the review.",
   });
 
+  // ✅ Load candidate data from Firestore
   useEffect(() => {
-    if (id) {
-      console.log(`Fetching GCKEY data for ID: ${id}`);
-      const mockData = {
-        applicationType: "online",
-        applicantName: "ABC",
-        applicationNumber: "W23456783",
-        submissionDate: "2025-09-01",
-        finalDecisionDate: "2025-09-28",
-        finalDecisionMessage:
-          "November 28, 2025 Your application was approved. Check your messages...",
-        biometricsNumber: "00055442666277788288282",
-        dateOfBiometricsEnrolment: "2025-09-12",
-        clientIdentifierUCI: "11396853.444",
-        reviewOfMedicalResults:
-          "You need a medical exam. We will send you a message if this changes.",
-        reviewOfEligibility:
-          "November 26, 2025 Your eligibility has been reviewed. Please see the final decision.",
-        medicalEnrolmentDate: "2025-09-17",
-        reviewOfAdditionalDocuments: "We do not need additional documents.",
-        interviewMessage:
-          "You do not need an interview. We will send you a message if this changes.",
-        backgroundCheckMessage:
-          "We are processing your background check. We will send you a message.",
-        biometricsMessage:
-          "We do not need your fingerprints. We will send you a message if this changes.",
-        biometricsExpiryDate: "2035-11-09",
-        backgroundCheckDate: "2025-09-18",
-        reviewOrFinalMessage: "This is the final message regarding the review.",
-      };
-      setFormData(mockData);
-    } else {
-      setFormData({
-        applicationType: "online",
-        applicantName: "",
-        applicationNumber: "",
-        submissionDate: "",
-        finalDecisionDate: "",
-        finalDecisionMessage: "",
-        biometricsNumber: "",
-        dateOfBiometricsEnrolment: "",
-        clientIdentifierUCI: "",
-        reviewOfMedicalResults: "",
-        reviewOfEligibility: "",
-        medicalEnrolmentDate: "",
-        reviewOfAdditionalDocuments: "",
-        interviewMessage: "",
-        backgroundCheckMessage: "",
-        biometricsMessage: "",
-        biometricsExpiryDate: "",
-        backgroundCheckDate: "",
-        reviewOrFinalMessage: "",
-      });
-    }
+    const fetchCandidate = async () => {
+      if (id) {
+        try {
+          const candidateRef = doc(db, "candidates", id);
+          const candidateSnap = await getDoc(candidateRef);
+          if (candidateSnap.exists()) {
+            setFormData((prev) => ({ ...prev, ...candidateSnap.data() }));
+          }
+        } catch (err) {
+          console.error("Error fetching candidate:", err);
+        }
+      }
+    };
+    fetchCandidate();
   }, [id]);
 
   const handleChange = (e) => {
@@ -180,11 +132,21 @@ const EditGcKeyPage = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  // ✅ Save updates to Firestore and then navigate
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
-    alert(`GCKEY ${id ? "updated" : "added"} successfully!`);
-    navigate("/applications");
+    try {
+      const candidateRef = doc(db, "candidates", id);
+      await updateDoc(candidateRef, formData);
+
+      alert("✅ Candidate updated successfully!");
+
+      // Navigate to document upload page with applicationNumber
+      navigate(`/applications/${formData.applicationNumber}/documents`);
+    } catch (err) {
+      console.error("Error updating candidate:", err);
+      alert("❌ Failed to update candidate.");
+    }
   };
 
   const handleCancel = () => {
@@ -196,7 +158,6 @@ const EditGcKeyPage = () => {
       <h2 className="page-title">{id ? "Edit GCKEY" : "Add New GCKEY"}</h2>
       <form onSubmit={handleSubmit} className="gc-key-form">
         <div className="form-grid">
-          {/* Changed to DropdownWithLabel */}
           <DropdownWithLabel
             label="Application Type"
             options={applicationTypes}

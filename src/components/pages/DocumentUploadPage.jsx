@@ -1,39 +1,25 @@
-import React, { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import Button from "../common/Button";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { db } from "../../firebaseConfig";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  orderBy,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 import UploadedDocumentsTable from "../applications/UploadedDocumentsTable";
-import "./DocumentUploadPage.css"; // We will create this CSS file next
+import Button from "../common/Button";
+import "./DocumentUploadPage.css";
+
+const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/debysr2dg/upload";
+const UPLOAD_PRESET = "unsigned_pre";
 
 const DocumentUploadPage = () => {
-  const { appNumber } = useParams(); // Get application number from URL
-  const navigate = useNavigate();
-
-  // Mock data for existing documents
-  const initialDocuments = [
-    {
-      id: 1,
-      name: "Confirmation Of Online Application Transmission",
-      sendDate: "2025-09-16",
-      readDate: "2025-09-16",
-      position: 3,
-    },
-    {
-      id: 2,
-      name: "Submission Confirmation",
-      sendDate: "2025-09-15",
-      readDate: "2025-09-11",
-      position: 1,
-    },
-    {
-      id: 3,
-      name: "Biometrics Collection Letter",
-      sendDate: "2025-09-05",
-      readDate: "2025-09-03",
-      position: 2,
-    },
-  ];
-
-  const [documents, setDocuments] = useState(initialDocuments);
+  const { appNumber } = useParams(); // candidate ID
+  const [documents, setDocuments] = useState([]);
   const [successMessage, setSuccessMessage] = useState("");
   const [newDocument, setNewDocument] = useState({
     file: null,
@@ -41,6 +27,28 @@ const DocumentUploadPage = () => {
     dateRead: "",
   });
 
+  // 🔹 Fetch documents from Firestore
+  useEffect(() => {
+    const fetchDocs = async () => {
+      try {
+        const q = query(
+          collection(db, `candidates/${appNumber}/documents`),
+          orderBy("position", "asc")
+        );
+        const snapshot = await getDocs(q);
+        const docsData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setDocuments(docsData);
+      } catch (err) {
+        console.error("Error fetching documents:", err);
+      }
+    };
+    fetchDocs();
+  }, [appNumber]);
+
+  // 🔹 File change handler
   const handleFileChange = (e) => {
     setNewDocument({ ...newDocument, file: e.target.files[0] });
   };
@@ -49,31 +57,70 @@ const DocumentUploadPage = () => {
     setNewDocument({ ...newDocument, [e.target.name]: e.target.value });
   };
 
-  const handleUpload = (e) => {
+  // 🔹 Upload document
+  const handleUpload = async (e) => {
     e.preventDefault();
     if (!newDocument.file) {
       alert("Please choose a file to upload.");
       return;
     }
-    // Simulate upload
-    const newDocEntry = {
-      id: Date.now(), // Use a unique ID
-      name: newDocument.file.name,
-      sendDate: newDocument.dateSend,
-      readDate: newDocument.dateRead,
-      position: documents.length + 1,
-    };
-    setDocuments([...documents, newDocEntry]);
-    setSuccessMessage("Document uploaded and saved successfully.");
-    // Clear form
-    setNewDocument({ file: null, dateSend: "", dateRead: "" });
-    document.getElementById("file-input").value = null; // Clear file input visually
+
+    try {
+      // 1. Upload file to Cloudinary
+      const formData = new FormData();
+      formData.append("file", newDocument.file);
+      formData.append("upload_preset", UPLOAD_PRESET);
+
+      const cloudRes = await fetch(CLOUDINARY_URL, {
+        method: "POST",
+        body: formData,
+      });
+
+      const cloudData = await cloudRes.json();
+      if (!cloudData.secure_url) throw new Error("Cloudinary upload failed");
+
+      // 2. Save metadata in Firestore
+      const newDoc = {
+        name: newDocument.file.name,
+        url: cloudData.secure_url,
+        sendDate: newDocument.dateSend,
+        readDate: newDocument.dateRead,
+        position: documents.length + 1,
+        uploadedAt: new Date(),
+      };
+
+      const docRef = await addDoc(
+        collection(db, `candidates/${appNumber}/documents`),
+        newDoc
+      );
+
+      // 3. Update UI
+      setDocuments([...documents, { id: docRef.id, ...newDoc }]);
+      setSuccessMessage("✅ Document uploaded and saved successfully.");
+      setNewDocument({ file: null, dateSend: "", dateRead: "" });
+      document.getElementById("file-input").value = null;
+    } catch (err) {
+      console.error("Upload failed:", err);
+      setSuccessMessage("❌ Failed to upload document.");
+    }
   };
 
-  const handleDelete = (docId) => {
+  // 🔹 Delete
+  const handleDelete = async (docId) => {
     setDocuments(documents.filter((doc) => doc.id !== docId));
+    try {
+    const docRef = doc(db, "candidates", appNumber, "documents", docId);
+    await deleteDoc(docRef);  // 👈 This deletes from Firebase
+    
+    setDocuments(documents.filter((doc) => doc.id !== docId));
+    setSuccessMessage("✅ Document deleted successfully!");
+  } catch (error) {
+    console.error("Error deleting document:", error);
+    setSuccessMessage("❌ Failed to delete document.");
+  }
   };
 
+  // 🔹 Change position
   const handlePositionChange = (docId, newPosition) => {
     setDocuments(
       documents.map((doc) =>
@@ -85,13 +132,13 @@ const DocumentUploadPage = () => {
   const handleSavePosition = (docId) => {
     const doc = documents.find((d) => d.id === docId);
     alert(`Position for "${doc.name}" saved as ${doc.position}.`);
-    // In a real app, this would be an API call
+    // update Firestore with new position
   };
 
   return (
     <div className="page-container">
       <div className="breadcrumb">
-        Upload Documents &rarr; Application No - ({appNumber})
+        Upload Documents → Candidate ID - ({appNumber})
       </div>
 
       {successMessage && <div className="success-banner">{successMessage}</div>}
@@ -125,7 +172,6 @@ const DocumentUploadPage = () => {
             value={newDocument.dateRead}
             onChange={handleDateChange}
           />
-          <span className="field-note">This Is Message Not Date</span>
         </div>
         <div className="form-action-field">
           <Button type="submit" variant="primary">

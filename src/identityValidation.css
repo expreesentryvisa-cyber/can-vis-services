@@ -1,0 +1,146 @@
+/* Container */
+.iv-container {
+  font-family: Arial, sans-serif;
+  color: #000;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 40px;
+}
+
+/* Header */
+.iv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.iv-breadcrumb a {
+  color: #003366;
+  text-decoration: underline;
+}
+
+.iv-breadcrumb span {
+  color: #000;
+  font-weight: 500;
+}
+
+.iv-user-links {
+  font-size: 16px;
+  color: #333;
+}
+
+.iv-user-links a {
+  color: #003366;
+  text-decoration: underline;
+  margin: 0 4px;
+}
+
+/* Main Section */
+.iv-main {
+  max-width: 100%;
+  margin-top: 30px;
+}
+
+.iv-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.iv-subtitle {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.iv-instruction {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.iv-form {
+  margin-top: 20px;
+}
+
+.iv-label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.iv-required {
+  color: red;
+  font-weight: bold;
+}
+
+.iv-required-text {
+  color: red;
+}
+
+/* Input */
+.iv-input {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+/* Buttons */
+.iv-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.iv-btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.iv-btn-primary {
+  background-color: #23406d;
+  color: #fff;
+  border: none;
+}
+
+.iv-btn-primary:hover {
+  background-color: #1a2f52;
+}
+
+.iv-btn-secondary {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+.iv-btn-secondary:hover {
+  background-color: #e1e1e1;
+}
+
+/* Footer */
+.iv-footer {
+  margin-top: 40px;
+  text-align: start;
+}
+
+.iv-footer-btn {
+  background-color: #e9e9e9;
+  border: 1px solid #ccc;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.iv-footer-btn:hover {
+  background-color: #dcdcdc;
+}

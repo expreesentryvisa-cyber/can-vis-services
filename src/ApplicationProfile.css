@@ -1,0 +1,508 @@
+  .status-app-wrapper-uniq {
+          background-color: #ffffff;
+          display: flex;
+          justify-content: center;
+          padding: 20px;
+          font-family: Arial, sans-serif;
+        }
+
+        /* Container - 80% width */
+        .status-container-uniq {
+          width: 65%;
+          max-width: 1400px;
+        }
+
+        /* Breadcrumb Navigation */
+        .status-breadcrumb-uniq {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 20px;
+          font-size: 14px;
+        }
+
+        .status-breadcrumb-link-uniq {
+          color: #0066cc;
+          text-decoration: underline;
+        }
+
+        .status-breadcrumb-link-uniq:hover {
+          color: #003d7a;
+        }
+
+        .status-breadcrumb-separator-uniq {
+          color: #666;
+        }
+
+        .status-breadcrumb-current-uniq {
+          color: #666;
+        }
+
+        /* User Info Bar */
+        .status-user-info-bar-uniq {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 30px;
+          font-size: 14px;
+        }
+
+        .status-signed-in-text-uniq {
+          color: #666;
+        }
+
+        .status-user-links-uniq {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .status-user-link-uniq {
+          color: #9370db;
+          text-decoration: underline;
+        }
+
+        .status-user-link-uniq:hover {
+          color: #6a4fb3;
+        }
+
+        .status-link-separator-uniq {
+          color: #666;
+        }
+
+        /* Main Heading */
+        .status-main-heading-uniq {
+          font-size: 36px;
+          font-weight: bold;
+          color: #333;
+          margin: 0 0 10px 0;
+        }
+
+        .status-divider-uniq {
+          border: none;
+          border-top: 2px solid #999;
+          margin: 0 0 20px 0;
+        }
+
+        /* Subtitle with link */
+        .status-subtitle-uniq {
+          font-size: 18px;
+          color: #555;
+        }
+
+        .status-view-link-uniq {
+          color: #0066cc;
+          text-decoration: underline;
+          margin-left: 5px;
+        }
+
+        .status-view-link-uniq:hover {
+          color: #003d7a;
+        }
+
+        /* Two Column Layout */
+        .status-two-column-uniq {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 30px;
+          margin-top: 20px;
+        }
+
+        /* Card Styles */
+        .status-card-uniq {
+          border: 1px solid #ccc;
+          background-color: #ffffff;
+          height: fit-content;
+        }
+
+        .status-card-header-uniq {
+          background-color: #f5f5f5;
+          padding: 10px 15px;
+          border-bottom: 1px solid #ccc;
+        }
+
+        .status-card-title-uniq {
+          font-size: 22px;
+          font-weight: bold;
+          color: #333;
+          margin: 0;
+        }
+
+        .status-card-body-uniq {
+          padding: 10px;
+          font-size: 18px;
+          color: #333;
+        }
+
+        .status-card-text-uniq {
+          margin: 0 0 20px 0;
+        }
+
+        .status-update-section-uniq {
+          margin-top: 20px;
+        }
+
+        .status-update-title-uniq {
+          font-weight: bold;
+          margin: 0 0 10px 0;
+        }
+
+        .status-update-detail-uniq {
+          font-weight: bold;
+          color: #333;
+          margin-bottom: 10px;
+        }
+
+        .status-update-text-uniq {
+         font-weight: normal; 
+        }
+        .status-update-text-uniq {
+  /* If you need the nested text to be normal (not bold), explicitly reset it */
+  font-weight: normal;
+}
+
+        /* Applicant Information Styles */
+        .status-info-item-uniq {
+          margin: 0 0 15px 0;
+        }
+
+        .status-info-label-uniq {
+          font-weight: bold;
+          color: #333;
+        }
+
+        .status-info-value-uniq {
+          color: #333;
+        }
+
+        .status-biometrics-number-uniq {
+          color: #080808;
+          text-decoration: none;
+        }
+
+        .status-biometrics-number-uniq:hover {
+          color: #003d7a;
+        }
+
+ .details-app-wrapper-uniq {
+          background-color: #ffffff;
+          display: flex;
+          justify-content: center;
+          font-family: Arial, sans-serif;
+        }
+
+        /* Container - 80% width */
+        .details-container-uniq {
+          width: 65%;
+          max-width: 1400px;
+        }
+
+        /* Main Heading */
+        .details-main-heading-uniq {
+          font-size: 36px;
+          font-weight: bold;
+          color: #333;
+          margin-bottom: 2px;
+        }
+
+        /* Intro Text */
+        .details-intro-text-uniq {
+          font-size: 16px;
+          color: #555;
+        }
+
+        /* Status Item */
+
+
+        /* Status Header */
+        .details-status-header-uniq {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        /* Icon */
+        .details-icon-uniq {
+          font-size: 28px;
+          color: #555;
+          display: flex;
+          align-items: center;
+          filter: grayscale(100%);
+        }
+
+        /* Status Title */
+        .details-status-title-uniq {
+          font-size: 20px;
+          font-weight: bold;
+          color: #333;
+          margin: 0;
+        }
+
+        /* Help Icon */
+        .details-help-icon-uniq {
+          width: 22px;
+          height: 22px;
+          background-color: #4a5f8c;
+          border-radius: 50%;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 14px;
+          font-weight: bold;
+          cursor: pointer;
+          margin-left: 5px;
+        }
+
+        /* Status Detail */
+        .details-status-detail-uniq {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          padding-left: 40px;
+        }
+
+        /* Bullet Point */
+        .details-bullet-uniq {
+          color: #999;
+          font-size: 20px;
+          line-height: 1.5;
+          margin-top: 2px;
+        }
+
+        /* Detail Text */
+        .details-detail-text-uniq {
+          font-size: 16px;
+          color: #555;
+          line-height: 1.5;
+          margin: 0;
+        }
+
+        .details-date-uniq {
+          color: #333;
+          font-weight: 500;
+        }
+
+
+
+         .app-messages-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          min-height: 100vh;
+          padding: 40px 0;
+        }
+
+        /* Main container with 80% width */
+        .app-messages-container {
+          width: 80%;
+          max-width: 1400px;
+          padding: 30px 40px;
+          font-family: Arial, sans-serif;
+        }
+
+        /* Title */
+        .app-messages-title {
+          font-size: 32px;
+          font-weight: bold;
+          color: #333333;
+          margin: 0 0 20px 0;
+        }
+
+        /* Info box */
+        .app-messages-info-box {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          border-left: 4px solid #31708f;
+          padding: 15px;
+          margin-bottom: 20px;
+        }
+
+        .app-messages-info-icon {
+          font-size: 20px;
+          flex-shrink: 0;
+        }
+
+        .app-messages-info-text {
+          margin: 0;
+          color: #101111;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+
+        /* New messages count */
+        .app-messages-new-count {
+          font-size: 16px;
+          color: #333333;
+          margin-bottom: 20px;
+        }
+
+        /* Controls section */
+        .app-messages-controls {
+          display: flex;
+          align-items: center;
+          gap: 30px;
+          margin-bottom: 20px;
+          flex-wrap: wrap;
+        }
+
+        .app-messages-search-group,
+        .app-messages-show-group {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .app-messages-label {
+          font-size: 14px;
+          color: #333333;
+          font-weight: normal;
+        }
+
+        .app-messages-search-input {
+          padding: 6px 10px;
+          border: 1px solid #cccccc;
+          font-size: 14px;
+          width: 200px;
+          outline: none;
+        }
+
+        .app-messages-search-input:focus {
+          border-color: #66afe9;
+          box-shadow: 0 0 4px rgba(102, 175, 233, 0.6);
+        }
+
+        .app-messages-select {
+          padding: 6px 10px;
+          border: 1px solid #cccccc;
+          font-size: 14px;
+          background-color: white;
+          cursor: pointer;
+          outline: none;
+        }
+
+        .app-messages-select:focus {
+          border-color: #66afe9;
+          box-shadow: 0 0 4px rgba(102, 175, 233, 0.6);
+        }
+
+        /* Table */
+        .app-messages-table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-bottom: 20px;
+        }
+
+        .app-messages-th {
+          background-color: #e8e8e8;
+          padding: 12px 15px;
+          text-align: left;
+          font-weight: bold;
+          font-size: 14px;
+          color: #333333;
+          border: 1px solid #dddddd;
+        }
+
+        .app-messages-sortable {
+          cursor: pointer;
+        }
+
+        .app-messages-row {
+          border-bottom: 1px solid #dddddd;
+        }
+
+        .app-messages-row:hover {
+          background-color: #f9f9f9;
+        }
+
+        .app-messages-td {
+          padding: 12px 15px;
+          font-size: 14px;
+          color: #333333;
+          border: 1px solid #dddddd;
+        }
+
+        .app-messages-link {
+          color: #2572b4;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+
+        .app-messages-link:hover {
+          color: #1a5489;
+        }
+
+        /* Footer */
+        .app-messages-footer {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 30px;
+          position: relative;
+        }
+
+        .app-messages-showing {
+          font-size: 14px;
+          color: #333333;
+          position: absolute;
+          left: 0;
+        }
+
+        .app-messages-pagination {
+          display: flex;
+          gap: 5px;
+        }
+
+        .app-messages-page-btn {
+          padding: 8px 14px;
+          border: none;
+          background-color: #2572b4;
+          color: white;
+          font-size: 14px;
+          cursor: pointer;
+          border-radius: 3px;
+        }
+
+        .app-messages-page-btn:hover {
+          background-color: #1a5489;
+        }
+
+        .app-messages-page-btn.app-messages-active {
+          background-color: #2572b4;
+          font-weight: bold;
+        }
+
+        /* Report button */
+        .app-messages-report-btn {
+          padding: 10px 20px;
+          background-color: #f5f5f5;
+          border: 1px solid #cccccc;
+          color: #555555;
+          font-size: 14px;
+          cursor: pointer;
+          border-radius: 3px;
+        }
+
+        .app-messages-report-btn:hover {
+          background-color: #e8e8e8;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .app-messages-container {
+            width: 90%;
+            padding: 20px;
+          }
+
+          .app-messages-controls {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+
+          .app-messages-footer {
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-start;
+          }
+        }

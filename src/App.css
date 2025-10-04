@@ -1,7 +1,296 @@
-/* src/App.css */
+ * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
 
-.App {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+        body {
+          font-family: Arial, sans-serif;
+          font-size: 16px;
+          color: #333;
+        }
+
+        .app {
+          min-height: 100vh;
+        }
+
+        /* Header Styles */
+        .header {
+          border-bottom: 3px solid #af3c43;
+          padding: 40px 30px;
+        }
+
+        .header-content {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          align-items:center;
+          justify-content: space-between;
+          gap: 30px;
+        }
+
+        .menu-button {
+          background-color: #26374a;
+          color: white;
+          border: none;
+          padding: 15px 20px;
+          font-size: 14px;
+          font-weight: bold;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-left:310px;
+        }
+
+        .menu-button:hover {
+          background-color: #1c2e3e;
+        }
+
+        .menu-arrow {
+          font-size: 10px;
+        }
+
+        .logo-container {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          flex: 1;
+          justify-content: left;
+        }
+
+        .logo {
+          height: 40px;
+          width: auto;
+        }
+
+        .logo-text {
+          line-height: 1.2;
+        }
+
+        .logo-line1 {
+          font-size: 16px;
+          font-weight: bold;
+        }
+
+        .logo-line2 {
+          font-size: 14px;
+        }
+
+        .header-right {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+        }
+
+        .lang-link {
+          color: #284162;
+          text-decoration: none;
+          font-size: 14px;
+        }
+
+        .lang-link:hover {
+          text-decoration: underline;
+        }
+
+        .search-container {
+          display: flex;
+        }
+
+        .search-input {
+          padding: 8px 12px;
+          border: 1px solid #ccc;
+          font-size: 14px;
+          width: 200px;
+        }
+
+        .search-button {
+          background-color: #26374a;
+          color: white;
+          border: none;
+          padding: 8px 15px;
+          cursor: pointer;
+          font-size: 16px;
+        }
+
+        .search-button:hover {
+          background-color: #1c2e3e;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+          background-color: white;
+          border-bottom: 1px solid #ddd;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+          padding: 20px;
+        }
+
+        .dropdown-menu ul {
+          list-style: none;
+          max-width: 1200px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+        }
+
+        .dropdown-menu li a {
+          color: #284162;
+          text-decoration: none;
+          font-size: 15px;
+        }
+
+        .dropdown-menu li a:hover {
+          text-decoration: underline;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+          background-color: white;
+          font-size: 14px;
+          margin-bottom: 70px;
+        }
+
+        .breadcrumb a {
+          color: #284162;
+          text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+          text-decoration: underline;
+        }
+
+        /* SignIn Content */
+        .signin-container {
+          background-color: white;
+        }
+
+        .content {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 30px 20px;
+        }
+
+        .page-title {
+          font-size: 28px;
+          font-weight: normal;
+          margin-bottom: 20px;
+          color: #333;
+        }
+        .section-title {
+          font-size: 28px;
+          font-weight: bold;
+          /* Removed border-bottom: 3px solid #af3c43; */
+          
+          margin-bottom: 8px;
+          padding-bottom: 8px;
+          display: inline-block;
+          color: #333;
+          
+          /* --- Replace border with a single-color linear gradient --- */
+          /* Line color, Line color */
+          background-image: linear-gradient(#af3c43, #af3c43); 
+          
+          /* Length (e.g., 50%) and Thickness (3px) */
+          background-size: 25% 7px; 
+          
+          /* Position: left bottom, center bottom, or right bottom */
+          background-position: left bottom; 
+          
+          /* Crucial: ensures the gradient is drawn once and acts as a border */
+          background-repeat: no-repeat; 
 }
+        .intro-text {
+          margin: 15px 0;
+          line-height: 1.6;
+          color: #333;
+        }
+
+        .subsection-title {
+          font-size: 34px;
+          margin: 30px 0 20px 0;
+          color: #333;
+        }
+
+        /* Accordion Styles */
+        .accordion {
+          margin-bottom: 15px;
+          border: 1px solid #ccc;
+        }
+
+        .accordion-header {
+          width: 100%;
+          background-color: white;
+          border: none;
+          padding: 10px;
+          text-align: left;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 7px;
+          font-size: 16px;
+          color: #0535d2;
+          font-weight: bold;
+        }
+
+        .accordion-header:hover {
+          background-color: #e8e8e8;
+        }
+
+        .accordion-icon {
+          font-size: 12px;
+          color: #284162;
+        }
+
+        .accordion-title {
+          color: #295376;
+        }
+
+.title-light {
+  /* Make the text color lighter (e.g., a lighter grey) */
+  color: #295376; 
+  
+  /* Reduce the font weight */
+  font-weight: normal; /* Or use a number like 400 */
+  
+}
+        .accordion-content {
+          padding: 20px;
+          background-color: #e1f2fb;
+          border-top: 1px solid #ccc;
+        }
+
+        .study-permit-section {
+          margin-top: 30px;
+          padding-top: 20px;
+          border-top: 1px solid #ddd;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+          .header-content {
+            flex-direction: column;
+            align-items: stretch;
+          }
+
+          .logo-container {
+            justify-content: flex-start;
+          }
+
+          .header-right {
+            flex-direction: column;
+            align-items: stretch;
+          }
+
+          .search-container {
+            width: 100%;
+          }
+
+          .search-input {
+            flex: 1;
+          }
+
+          .dropdown-menu ul {
+            grid-template-columns: 1fr;
+          }
+        }

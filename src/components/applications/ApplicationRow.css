@@ -18,3 +18,116 @@
   flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
   gap: 8px; /* Space between action buttons */
 }
+/* Modal Styles with unique classnames */
+.app-row-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.app-row-modal-content {
+  background: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.app-row-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.app-row-modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1f2937;
+}
+
+.app-row-modal-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.app-row-modal-close:hover {
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+
+.app-row-modal-body {
+  padding: 20px;
+}
+
+.app-row-form-group {
+  margin-bottom: 20px;
+}
+
+.app-row-form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.app-row-required {
+  color: #ef4444;
+}
+
+.app-row-security-question-text {
+  background-color: #f9fafb;
+  padding: 12px;
+  border-radius: 6px;
+  color: #1f2937;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.app-row-form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.app-row-form-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.app-row-form-input:disabled {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+}
+
+.app-row-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px;
+  border-top: 1px solid #e5e7eb;
+}
