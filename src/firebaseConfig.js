@@ -7,12 +7,18 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDeNkzESPCUB0auwWZE8KJLEZw0eIxwHN8",
-  authDomain: "fir-2f8b9.firebaseapp.com",
-  projectId: "fir-2f8b9",
-  storageBucket: "fir-2f8b9.firebasestorage.app",
-  messagingSenderId: "850967099809",
-  appId: "1:850967099809:web:4f51cc4f2fc33fa85133e0"
+   apiKey: "AIzaSyA9d6xgHbHFZOUY12McZYO2zpAoMnYCKrY",
+
+  authDomain: "can-vis-services.firebaseapp.com",
+
+  projectId: "can-vis-services",
+
+  storageBucket: "can-vis-services.firebasestorage.app",
+
+  messagingSenderId: "718303169195",
+
+  appId: "1:718303169195:web:ee0ff86753120bd71785ee"
+
 };
 
 // Initialize Firebase

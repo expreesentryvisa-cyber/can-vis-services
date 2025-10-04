@@ -14,8 +14,8 @@ import UploadedDocumentsTable from "../applications/UploadedDocumentsTable";
 import Button from "../common/Button";
 import "./DocumentUploadPage.css";
 
-const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/debysr2dg/upload";
-const UPLOAD_PRESET = "unsigned_pre";
+const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dut3ohp0u/upload";
+const UPLOAD_PRESET = "unsigned_preset";
 
 const DocumentUploadPage = () => {
   const { appNumber } = useParams(); // candidate ID
